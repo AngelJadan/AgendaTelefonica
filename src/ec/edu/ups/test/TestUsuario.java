@@ -22,7 +22,7 @@ public class TestUsuario {
 		
 		Telefono t1, t2, t3,t4;
 		List<Telefono> listel = new ArrayList<Telefono>();
-		u1 = new Usuario("0106405236", "Angel", "Jadan", "ajadanc@est.ups.edu.ec", "Angel2019", listel);
+		u1 = new Usuario("0106405948", "Angel", "Jadan", "ajadanc@est.ups.edu.ec", "Angel2002", listel);
 		
 		t1 = new Telefono(1, "0990527381", "CELULAR", "Claro", u1);
 		listel.add(t1);
