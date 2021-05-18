@@ -11,6 +11,7 @@
 	crossorigin="anonymous">
 </head>
 <body style="background-color: #D1F8F3">
+<script type="text/javascript" src="js/register.js"></script>
 	<div style="width: 200px;">
 		<a style="margin-left: 100px; margin-top: 20px"
 			href="/AgendaTelefonica/HTMLs/login.html">Volver</a>
@@ -18,27 +19,28 @@
 		border: 10px solid #4CAF50; "
 			action="/AgendaTelefonica/CrearUsuarioController" method="POST">
 			<div class="mb-3">
-				<label for="lblcedula" class="form-label">Cédula</label> <input
+				<label for="lblcedula" class="form-label">Cédula</label> <input onkeyup="valcedula()"
 					type="text" class="form-control" name="cedula" id="cedula"
-					aria-describedby="emailHelp" style="width: 200px;">
+					aria-describedby="emailHelp" style="width: 200px;" placeholder="(*)" maxlength="10">
+					<p style="display:none;" id="smscc">Cedula incorrecta</p>
 			</div>
 			<div class="mb-3">
 				<label for="lblnombre" class="form-label">Nombre</label> <input
-					type="text" class="form-control" name="nombre" id="nombre">
+					type="text" class="form-control" name="nombre" id="nombre" placeholder="(*)">
 			</div>
 
 			<div class="mb-3">
 				<label for="lblapellido" class="form-label">Apellido</label> <input
-					type="text" class="form-control" name="apellido" id="apellido">
+					type="text" class="form-control" name="apellido" id="apellido" placeholder="(*)">
 			</div>
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">Correo</label> <input
 					type="email" class="form-control" name="email" id="email"
-					aria-describedby="emailHelp">
+					aria-describedby="emailHelp" placeholder="(*)" onkeyup="vemail()">
 			</div>
 			<div class="mb-3">
 				<label for="exampleInputPassword1" class="form-label">Password</label>
-				<input type="password" class="form-control" name="pass" id="pass">
+				<input type="password" class="form-control" name="pass" id="pass" placeholder="(*)">
 			</div>
 
 			<button type="submit" class="btn btn-primary">Registrar</button>

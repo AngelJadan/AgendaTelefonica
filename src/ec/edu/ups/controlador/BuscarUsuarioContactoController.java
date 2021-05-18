@@ -56,8 +56,9 @@ public class BuscarUsuarioContactoController extends HttpServlet {
 		System.out.println("Inicio");
 		
 		for (Usuario user : usuarioDAO.find()) {
-			if (user.getCedula().equals(uscedula)) {
+			if (uscedula.equals(identificador)) {
 				PrintWriter out = response.getWriter();
+								
 				out.println("<html>"
 						+"<body>"
 						+"<head>"
@@ -72,8 +73,8 @@ public class BuscarUsuarioContactoController extends HttpServlet {
 					usuario = user;
 					List<Telefono> telefonos = new ArrayList<Telefono>();
 					for (Telefono tel : telefonoDAO.find()) {
-						System.out.println(tel+": ident "+uscedula);
-						if (tel.getUsuario().getCedula().equals(uscedula)) {
+						System.out.println(tel+": ident "+identificador);
+						if (tel.getUsuario().getCedula().equals(user.getCedula())) {
 							telefonos.add(tel);
 						}
 					}

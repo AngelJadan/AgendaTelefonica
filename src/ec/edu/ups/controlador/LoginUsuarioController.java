@@ -96,8 +96,7 @@ public class LoginUsuarioController extends HttpServlet {
 						} else {
 							session.setAttribute("accesos", num + 1);
 						}
-						System.out.println("Iniciando session");
-						request.setAttribute("usuario", usuario);
+						
 						List<Telefono> telns = new ArrayList<Telefono>();
 						for (Telefono telefono : telefonoDAO.find()) {
 							if (telefono.getUsuario().getCedula().equals(usuario.getCedula())) {
@@ -105,7 +104,8 @@ public class LoginUsuarioController extends HttpServlet {
 							}
 						}
 						request.setAttribute("telefonos", telns);
-
+						usuario.setTelefonos(telns);
+						request.setAttribute("usuario", usuario);
 						url = "/JSPs/inicio_usuario.jsp";
 						System.out.println(url);
 						break;

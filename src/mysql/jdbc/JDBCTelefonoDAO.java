@@ -42,7 +42,7 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 		JDBCUsuarioDAO jdbcusu = new JDBCUsuarioDAO();
 		
 		Telefono telefono = null;
-		ResultSet rs = conexionDos.query("SELECT * FROM TELEFON WHERE TEL_CODIGO="+id);
+		ResultSet rs = conexionDos.query("SELECT * FROM TELEFONO WHERE TEL_CODIGO="+id);
 		try {
 			if (rs!=null && rs.next()) {
 				Usuario usuario = new Usuario();
@@ -65,10 +65,9 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 
 	@Override
 	public void update(Telefono telefono) {
-		conexionDos.update("UPDATE TELEFONO SET TEL_NUMERO='"+telefono.getNumero()+"','"
-				+"TEL_TIPO='"+telefono.getTipo()+"','"
-				+ "TEL_OPERADORA='"+telefono.getOperadora()+"' "
-				+ "WHERE TEL_CODIGO="+telefono.getCodigo());
+		System.out.println(telefono.toString());
+
+
 		
 	}
 

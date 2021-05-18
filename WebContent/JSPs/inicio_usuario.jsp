@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,12 +37,18 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="t" items="${telfns}">
+				<c:forEach var="t" items="${u.getTelefonos()}">
 					<tr>
 						<td>${t.codigo}</td>
 						<td>${t.numero}</td>
 						<td>${t.tipo}</td>
 						<td>${t.operadora}</td>
+						<td>
+							<form id="form-2" action="/AgendaTelefonica/BuscarTelefonoController" method="get">
+								<input id="codigo" name="codigo" value="${t.codigo}" placeholder="Text" type="text" hidden="true"/>
+								<input type="submit" value="Editar" id="button-2"/>
+							</form>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
